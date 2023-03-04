@@ -7,5 +7,4 @@ stream.on('data', function(chunk) {
     for(let i = 0; i < lines.length; i++){
        console.log(i+1, lines[i]);
 }
-
 })
