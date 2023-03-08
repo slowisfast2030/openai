@@ -1,4 +1,4 @@
-
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract MyDAO {
@@ -72,13 +72,24 @@ contract MyDAO {
     }
 }
 
-
 /**
 This contract represents a simple DAO that allows its members to submit and vote on proposals. 
 
-In this contract, members of the DAO are only able to submit proposals, and voting is limited to members only. Each proposal has a vote count that is incremented each time a member votes, and is approved when the vote count reaches a minimum threshold. The minimum threshold is determined by the `minVotesToApprove` variable, which is set at contract creation.
+Here's what the behavior of the contract would look like in practice:
 
-The contract also allows for the addition and removal of members from the DAO, and keeps track of the total number of members.
+1. First, we deploy the contract to the blockchain, specifying the `maxVotesPerMember` and `minVotesToApprove` parameters. These parameters are passed to the constructor at deployment time, and govern the behavior of the DAO.
 
-This is just a basic example of a DAO. In reality, the complexity of a DAO contract would depend on the specific needs and goals of the organization it represents.
+2. Next, we add members to the DAO by calling the `addMember` function, passing in the Ethereum addresses of the new members.
+
+3. Once we have members in the DAO, they can submit proposals by calling the `submitProposal` function, passing in a description of the proposal.
+
+4. Other members can then vote on the proposal by calling the `vote` function, passing in the ID of the proposal they're voting on.
+
+5. If the proposal receives enough votes to meet the `minVotesToApprove` threshold, it becomes "approved", meaning that the proposal can be enacted.
+
+6. Once a proposal is approved, the submitter (and potentially other members) can carry out the actions specified in the proposal.
+
+7. Members can be removed from the DAO by calling the `removeMember` function, passing in the Ethereum address of the member to be removed.
+
+Overall, this contract provides a simple and decentralized way for a group of people to govern themselves and make decisions. By using the blockchain and Web3 technologies, we can create a trustless and transparent organization that is not controlled by any single individual or entity.
 */
