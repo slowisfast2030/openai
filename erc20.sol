@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 // ERC20代币标准
@@ -29,7 +30,7 @@ contract MyToken is IERC20 {
         _balances[msg.sender] = _totalSupply;
     }
     
-    function totalSupply() public view override returns (uint256) {
+    function totalSupply() public pure override returns (uint256) {
         return _totalSupply;
     }
     
