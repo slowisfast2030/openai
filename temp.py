@@ -1,14 +1,20 @@
-# 写一段快排代码
+
 def quicksort(arr):
+    # This function implements quick sort algorithm
     if len(arr) <= 1:
-        return arr
+        return arr  # Already sorted list with only one element
 
-    pivot = arr[len(arr)//2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
+    # Select pivot element as middle index element 
+    pivot = arr[len(arr) // 2]
 
-    return quicksort(left) + middle + quicksort(right)
+    # Divide the arr into two sublists (left and right) smaller than and greater than pivot element respectively
+    left_arr = [x for x in arr if x < pivot]
+    middle_arr = [x for x in arr if x == pivot]
+    right_arr = [x for x in arr if x > pivot]
 
-arr = [1,5,2,7,4]
-print(quicksort(arr))
+    # Recursively apply quicksort to both sublists and concatenate the results
+    return quicksort(left_arr) + middle_arr + quicksort(right_arr)
+
+
+# Example usage of quicksort function
+print(quicksort([3, 6, 8, 10, 1, 2, 1]))
