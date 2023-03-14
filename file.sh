@@ -1,11 +1,29 @@
-#!/bin/bash
-line_num=0
-while read line
-do
-    #line_num=$(($line_num+1))
-    let "line_num=line_num+1"
-    printf "Line %3d : %s\n" $line_num $line
-done < "file.txt"
+quick_sort() {
+    local arr=("$@")
+    local left=()
+    local right=()
+    local pivot="${arr[0]}"
 
+    for i in "${arr[@]:1}"; do
+        if (( i < pivot )); then
+            left+=("$i")
+        else
+            right+=("$i")
+        fi
+    done
 
-# 写一段快排代码
+    if (( ${#left[@]} > 1 )); then
+        left=($(quick_sort "${left[@]}"))
+    fi
+
+    if (( ${#right[@]} > 1 )); then
+        right=($(quick_sort "${right[@]}"))
+    fi
+
+    printf '%s\n' "${left[@]}" "$pivot" "${right[@]}"
+}
+
+# 示例输入
+input=(4 2 8 7 1 6 5 3)
+result=($(quick_sort "${input[@]}"))
+echo "${result[@]}"
