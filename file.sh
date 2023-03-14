@@ -43,7 +43,6 @@ quick_sort() {
     # print the contents of the left array, followed by the pivot element, followed by the contents of the right array.
 }
 
-# 示例输入
 # Declare a new array called input with values 4 2 8 7 1 6 5 3
 input=(4 2 8 7 1 6 5 3)
 
