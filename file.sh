@@ -26,4 +26,6 @@ quick_sort() {
 # 示例输入
 input=(4 2 8 7 1 6 5 3)
 result=($(quick_sort "${input[@]}"))
-echo "${result[@]}"
+
+echo "Input Array: ${input[@]}"
+echo "Sorted Array: ${result[@]}"
