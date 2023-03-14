@@ -1,3 +1,5 @@
+#!/bin/bash
+
 quick_sort() {
     local arr=("$@")
     local left=()
