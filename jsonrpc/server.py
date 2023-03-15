@@ -1,8 +1,18 @@
-from jsonrpcserver import Success, method, serve
+# from jsonrpcserver import Success, method, serve
+
+# @method
+# def ping():
+#     return Success("pong")
+
+# if __name__ == "__main__":
+
+#     serve()
+
+
+from jsonrpcserver import method, serve, Success
 
 @method
-def ping():
-    return Success("pong")
+def hello(name):
+    return Success(f"Hello, {name}!")
 
-if __name__ == "__main__":
-    serve()
+serve()
